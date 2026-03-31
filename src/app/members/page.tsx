@@ -151,12 +151,13 @@ export default function MembersPage() {
                     <div className='flex p-6 gap-3 h-full'>
                         <div className='flex flex-col w-[40%] gap-1'>
                             <div className='aspect-[100/60] w-full relative border border-[#111214]'>
-                                <Image src={selectedPlayer.avatar} alt={selectedPlayer.name + ' profile'} fill className='object-cover' />
+                                <Image unoptimized src={selectedPlayer.avatar} alt={selectedPlayer.name + ' profile'} fill className='object-cover' />
                             </div>
                             <div className='flex flex-col p-3 gap-3 bg-[rgb(54,53,50)]'>
                                 <div className={`flex gap-3 items-center`}>
                                     <div className='relative border border-[#111214]'>
                                         <Image
+                                            unoptimized
                                             src={selectedPlayer.avatar}
                                             alt={selectedPlayer.name + ' avatar'}
                                             width={40}
@@ -239,7 +240,7 @@ function Player({ player, onSelect, isSelected }: { player: Player; onSelect: ()
             onClick={onSelect}
         >
             <div className='relative border border-[#111214]'>
-                <Image src={player.avatar} alt={player.name + ' avatar'} width={40} height={40} className='object-cover' />
+                <Image unoptimized src={player.avatar} alt={player.name + ' avatar'} width={40} height={40} className='object-cover' />
                 <div className='aspect-square rounded-full w-3.5 absolute -translate-x-1/2 -translate-y-1/2 top-0 left-full border-2 border-slate-100 bg-[rgb(71,117,49)]'></div>
             </div>
             <div className='text-slate-100 pt-1.5'>
