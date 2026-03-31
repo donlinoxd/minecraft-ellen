@@ -8,7 +8,10 @@ export default function Home() {
                 <Image src='/images/title.webp' alt='title minecraft' fill className='object-cover' />
             </div>
             <div className='flex flex-col text-xl gap-3'>
-                {[{ text: 'PLAY' }, { text: 'MEMBERS', link: '/members' }, { text: 'SETTINGS' }, { text: 'MARKETPLACE' }].map((item) => (
+                {[
+                    { text: 'ENTER OUR WORLD', link: 'our-world' },
+                    { text: 'MEMBERS', link: '/members' },
+                ].map((item) => (
                     <Link
                         key={item.text}
                         href={item.link ?? ''}
