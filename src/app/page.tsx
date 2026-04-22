@@ -11,6 +11,7 @@ export default function Home() {
                 {[
                     { text: 'ENTER OUR WORLD', link: 'our-world' },
                     { text: 'MEMBERS', link: '/members' },
+                    { text: 'MINECRAFT HISTORY', link: '/minecraft-history' },
                 ].map((item) => (
                     <Link
                         key={item.text}
