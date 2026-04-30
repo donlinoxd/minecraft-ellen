@@ -1,3 +1,42 @@
+const features = [
+  {
+    icon: "⛏️",
+    title: "Mining & Crafting",
+    description:
+      "Gather resources from deep underground and combine them into tools, weapons, and armor. The core loop of mining and crafting is endlessly rewarding.",
+  },
+  {
+    icon: "🏗️",
+    title: "Building",
+    description:
+      "From humble dirt huts to towering castles, Minecraft gives you the blocks to build anything you can imagine. The only limit is your creativity.",
+  },
+  {
+    icon: "🌍",
+    title: "Procedural World Generation",
+    description:
+      "Every world is unique. Procedural algorithms create infinite landscapes with mountains, oceans, caves, and villages — no two adventures are the same.",
+  },
+  {
+    icon: "🧟",
+    title: "Survival Mode",
+    description:
+      "Battle hostile mobs, manage hunger, and explore dangerous dungeons. Survival mode challenges you to stay alive and thrive in an unforgiving world.",
+  },
+  {
+    icon: "🎨",
+    title: "Creative Mode",
+    description:
+      "Unlimited resources, flight, and invincibility. Creative mode is a digital sandbox where artists and architects bring their grandest visions to life.",
+  },
+  {
+    icon: "🔴",
+    title: "Redstone Engineering",
+    description:
+      "Build complex circuits, contraptions, and even working computers using Redstone. It's engineering meets art in a world of blocks.",
+  },
+];
+
 const milestones = [
   {
     year: "2009",
@@ -72,6 +111,20 @@ export default function MinecraftPage() {
                 <h3 className="mc-timeline-title">{m.title}</h3>
                 <p className="mc-timeline-desc">{m.description}</p>
               </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="features">
+        <h2 className="mc-features-heading">What Makes Minecraft Unique</h2>
+
+        <div className="mc-features-grid">
+          {features.map((f) => (
+            <div key={f.title} className="mc-feature-card">
+              <span className="mc-feature-icon">{f.icon}</span>
+              <h3 className="mc-feature-title">{f.title}</h3>
+              <p className="mc-feature-desc">{f.description}</p>
             </div>
           ))}
         </div>
