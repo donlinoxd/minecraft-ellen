@@ -141,9 +141,204 @@
         --container-padding: 0.75rem;
       }
     }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--color-obsidian);
+      border-bottom: 4px solid var(--color-grass);
+      box-shadow: 0 4px 0 0 var(--color-grass-dark);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--container-max);
+      margin-inline: auto;
+      padding: 0.75rem var(--container-padding);
+      gap: 1rem;
+    }
+
+    .navbar__logo {
+      font-family: var(--font-pixel);
+      font-size: clamp(0.7rem, 2vw, 1rem);
+      color: var(--color-grass-light);
+      text-shadow: 2px 2px 0 var(--color-grass-dark);
+      white-space: nowrap;
+    }
+
+    .navbar__links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .navbar__links a {
+      font-family: var(--font-pixel);
+      font-size: clamp(0.5rem, 1.2vw, 0.65rem);
+      color: var(--color-text-secondary);
+      transition: color var(--transition);
+      text-transform: uppercase;
+    }
+
+    .navbar__links a:hover,
+    .navbar__links a:focus-visible {
+      color: var(--color-grass-light);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem var(--container-padding);
+      overflow: hidden;
+      background:
+        linear-gradient(
+          180deg,
+          #1a0a30 0%,
+          #2a1450 10%,
+          #4a2060 18%,
+          #7EC8E3 18.5%,
+          #6AB8D8 30%,
+          #5BA8C8 45%,
+          #7CBA3B 45.5%,
+          #5B8731 55%,
+          #4A7025 65%,
+          #3D5A1E 70%,
+          #8B6914 70.5%,
+          #7A5B10 80%,
+          #6B4F0E 90%,
+          #3B3B3B 90.5%,
+          #2A2A2A 100%
+        );
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 18px,
+          rgba(0,0,0,0.03) 18px,
+          rgba(0,0,0,0.03) 20px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 18px,
+          rgba(0,0,0,0.03) 18px,
+          rgba(0,0,0,0.03) 20px
+        );
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero__heading {
+      font-size: clamp(1.4rem, 5vw, 3rem);
+      color: var(--color-text-heading);
+      text-shadow:
+        3px 3px 0 var(--color-grass-dark),
+        6px 6px 0 rgba(0,0,0,0.4);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+
+    .hero__tagline {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+      color: var(--color-text-primary);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      font-family: var(--font-pixel);
+      font-size: clamp(0.65rem, 1.5vw, 0.85rem);
+      color: var(--color-text-heading);
+      background: var(--color-grass);
+      padding: 0.9rem 2.2rem;
+      border: 4px solid var(--color-grass-dark);
+      box-shadow:
+        inset -3px -3px 0 0 var(--color-grass-dark),
+        inset 3px 3px 0 0 var(--color-grass-light),
+        0 6px 0 0 var(--color-grass-dark),
+        0 8px 12px rgba(0,0,0,0.4);
+      text-transform: uppercase;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero__cta:hover,
+    .hero__cta:focus-visible {
+      transform: translateY(2px);
+      box-shadow:
+        inset -3px -3px 0 0 var(--color-grass-dark),
+        inset 3px 3px 0 0 var(--color-grass-light),
+        0 4px 0 0 var(--color-grass-dark),
+        0 5px 8px rgba(0,0,0,0.3);
+      color: var(--color-text-heading);
+    }
+
+    .hero__cta:active {
+      transform: translateY(4px);
+      box-shadow:
+        inset -3px -3px 0 0 var(--color-grass-dark),
+        inset 3px 3px 0 0 var(--color-grass-light),
+        0 2px 0 0 var(--color-grass-dark),
+        0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .navbar__links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="navbar">
+      <span class="navbar__logo">Minecraft Wiki</span>
+      <ul class="navbar__links">
+        <li><a href="#history">History</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#editions">Editions</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#fun-facts">Fun Facts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero__content">
+      <h1 class="hero__heading">The World of Minecraft</h1>
+      <p class="hero__tagline">From a cave-game prototype to the best-selling video game of all time — discover the blocks, the builds, and the billions of players who shaped a universe without limits.</p>
+      <a href="#history" class="hero__cta">Explore Now</a>
+    </div>
+  </section>
+
   <div class="container">
   </div>
 </body>
